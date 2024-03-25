@@ -1,17 +1,29 @@
 package com.lfumard.medilabo_note.model;
 
+import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
-@Document(collection = "notes")
+@Document(collection = "Patient_notes")
 public class Note {
 
     @Id
     private String id;
-    private String patId;
+    private long patientId;
     private LocalDateTime date;
-    private String annotation;
+    private String patientNote;
+
+    public Note(String id, long patientId, String patientNote) {
+        this.id = id;
+        this.patientId = patientId;
+        this.date = getDate();
+        this.patientNote = patientNote;
+    }
+
+    public Note() {
+        this.date = getDate();
+    }
 
     public String getId() {
         return id;
@@ -21,12 +33,12 @@ public class Note {
         this.id = id;
     }
 
-    public String getPatId() {
-        return patId;
+    public long getPatientId() {
+        return patientId;
     }
 
-    public void setPatId(String patId) {
-        this.patId = patId;
+    public void setPatientId(long patientId) {
+        this.patientId = patientId;
     }
 
     public LocalDateTime getDate() {
@@ -37,11 +49,11 @@ public class Note {
         this.date = date;
     }
 
-    public String getAnnotation() {
-        return annotation;
+    public String getPatientNote() {
+        return patientNote;
     }
 
-    public void setAnnotation(String annotation) {
-        this.annotation = annotation;
+    public void setPatientNote(String patientNote) {
+        this.patientNote = patientNote;
     }
 }
