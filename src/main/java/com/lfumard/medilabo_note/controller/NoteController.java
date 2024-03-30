@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/note")
+@RequestMapping("/service_note")
 public class NoteController {
 
     private Logger logger = LoggerFactory.getLogger(NoteController.class);
@@ -35,9 +35,10 @@ public class NoteController {
         return noteService.findAllNoteByPatientId(patientId);
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @GetMapping("/{id}")
+    public Note getNoteById(@PathVariable("id") String id){
+        logger.info("New request GetMapping : getNoteById : " + id);
+        return noteService.findById(id);
     }
 
     @PostMapping("/addNote")
@@ -58,9 +59,9 @@ public class NoteController {
         noteService.update(note);
     }
 
-    @DeleteMapping("/deleteAll")
-    public void deleteAllNote() {
-        logger.info("New request DeleteMapping : deleteAllNote");
-        noteService.deleteAll();
+    @DeleteMapping("/deleteNoteByPatientId/{patId}")
+    public void deleteAllNoteByPatient(@PathVariable Long patId) {
+        logger.info("New request DeleteMapping : deleteAllNoteByPatient");
+        noteService.deleteAllNoteByPatient(patId);
     }
 }

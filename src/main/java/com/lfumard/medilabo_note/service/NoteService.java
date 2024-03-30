@@ -53,4 +53,12 @@ public class NoteService {
     public void deleteAll() {
         noteRepository.deleteAll();
     }
+
+    public void deleteAllNoteByPatient(long patientId) {
+
+        List<Note> noteList = noteRepository.findAllByPatientId(patientId);
+        for(int i = 0; i < noteList.size(); i++) {
+            noteRepository.deleteById(noteList.get(i).getId());
+        }
+    }
 }
