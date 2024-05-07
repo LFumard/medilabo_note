@@ -50,9 +50,9 @@ public class NoteService {
         return noteRepository.findAllByPatientId(patientId);
     }
 
-    public void deleteAll() {
+/*    public void deleteAll() {
         noteRepository.deleteAll();
-    }
+    }*/
 
     public void deleteAllNoteByPatient(long patientId) {
 

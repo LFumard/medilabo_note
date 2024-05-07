@@ -23,11 +23,11 @@ public class NoteController {
         this.noteService = noteService;
     }*/
 
-    @GetMapping("/list")
+/*    @GetMapping("/list")
     public List<Note> listNotes() {
         logger.info("New request GetMapping : show all Note");
         return noteService.findAll();
-    }
+    }*/
 
     @GetMapping("/list/{patientId}")
     public List<Note> getNoteByPatientId(@PathVariable long patientId) {
