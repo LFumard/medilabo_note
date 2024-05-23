@@ -2,7 +2,6 @@ package com.lfumard.medilabo_note.service;
 
 import com.lfumard.medilabo_note.model.Note;
 import com.lfumard.medilabo_note.repository.NoteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,6 @@ public class NoteService {
 
     private static final Logger logger = LoggerFactory.getLogger(NoteService.class);
 
-    //@Autowired
     private final NoteRepository noteRepository;
 
     public NoteService(NoteRepository noteRepository) {
@@ -49,10 +47,6 @@ public class NoteService {
     public List<Note> findAllNoteByPatientId(long patientId) {
         return noteRepository.findAllByPatientId(patientId);
     }
-
-/*    public void deleteAll() {
-        noteRepository.deleteAll();
-    }*/
 
     public void deleteAllNoteByPatient(long patientId) {
 

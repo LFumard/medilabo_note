@@ -1,6 +1,5 @@
 package com.lfumard.medilabo_note.repository;
 
-//import com.lfumard.medilabo_note.model.Note;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import com.lfumard.medilabo_note.model.Note;

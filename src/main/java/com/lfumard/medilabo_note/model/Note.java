@@ -2,7 +2,6 @@ package com.lfumard.medilabo_note.model;
 
 import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-//import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
 @Document(collection = "Patient_notes")
