@@ -53,4 +53,5 @@ public class NoteController {
         logger.info("New request DeleteMapping : deleteAllNoteByPatient");
         noteService.deleteAllNoteByPatient(patId);
     }
+
 }
